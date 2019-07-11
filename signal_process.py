@@ -24,7 +24,7 @@ class SignalProcess(multiprocessing.Process):
             self.frame_cnt += 1
             print('    开始进行第' + str(self.frame_cnt) + '次信号处理，当前时间' + str(datetime.now()))
             self.signal_obj.signal_processing_start()
-            print('    处理完成，当前时间' + str(datetime.now()))
+            print('    第' + str(self.frame_cnt) + '次信号处理完成，当前时间' + str(datetime.now()))
         print('信号处理进程结束')
 
     def is_active(self):

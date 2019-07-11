@@ -10,7 +10,7 @@ class DataTrans():
         self.__samples_in_chirp = None
         self.__chirps_in_frame = None
         self.__num_of_IQ_data_per_frame = None
-        self.__complex_data_buffer = []
+        self.__complex_data_buffer = np.array([])
         self.__data_trans_cnt = 0     # 进行了多少次数据转换
         self.__frame_cnt = 0    # 进行了多少次数据处理
 

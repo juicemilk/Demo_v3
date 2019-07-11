@@ -123,6 +123,11 @@ class RadarParameter():
         V_max = (slow_time_Fs / 2) / unit_V_doppler_freq
         return V_max
 
+    def get_BW_in_MHz(self):
+        sample_time = self.get_samples_in_chirp() / (self.get_adc_sample_rate_in_kHz() * 1e3)
+        BW = sample_time * self.get_chirp_slope() * 1e12
+        return BW/1e6
+
 
 if __name__ == '__main__':
     radar_para = RadarParameter()

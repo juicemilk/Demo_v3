@@ -6,28 +6,40 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1239</width>
-    <height>879</height>
+    <width>2000</width>
+    <height>1800</height>
    </rect>
   </property>
+  <property name="baseSize">
+   <size>
+    <width>2000</width>
+    <height>1800</height>
+   </size>
+  </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>道路雷达监测系统</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout_2">
+   <layout class="QGridLayout" name="gridLayout_6">
     <item row="0" column="0">
-     <widget class="QSplitter" name="splitter_6">
+     <widget class="QSplitter" name="splitter_5">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
       <property name="childrenCollapsible">
        <bool>false</bool>
       </property>
-      <widget class="QGroupBox" name="groupBox_5">
+      <widget class="QGroupBox" name="information_groupBox">
        <property name="minimumSize">
         <size>
-         <width>264</width>
-         <height>691</height>
+         <width>350</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>400</width>
+         <height>16777215</height>
         </size>
        </property>
        <property name="baseSize">
@@ -37,125 +49,265 @@
         </size>
        </property>
        <property name="title">
-        <string>目标信息</string>
+        <string>雷达信息</string>
        </property>
        <layout class="QGridLayout" name="gridLayout">
         <item row="0" column="0">
-         <widget class="QSplitter" name="splitter_2">
+         <widget class="QSplitter" name="splitter">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
           </property>
           <property name="childrenCollapsible">
            <bool>false</bool>
           </property>
-          <widget class="QSplitter" name="splitter">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="childrenCollapsible">
-            <bool>false</bool>
-           </property>
-           <widget class="QLabel" name="frame">
-            <property name="text">
-             <string>当前帧数：</string>
-            </property>
-           </widget>
-           <widget class="QLineEdit" name="lineEdit"/>
+          <widget class="QWidget" name="layoutWidget">
+           <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,4">
+            <item>
+             <widget class="QLabel" name="freq_label">
+              <property name="text">
+               <string>工作频率：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="freq_line">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </widget>
-          <widget class="QSplitter" name="splitter_3">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="childrenCollapsible">
-            <bool>false</bool>
-           </property>
-           <widget class="QLabel" name="numlabel">
-            <property name="text">
-             <string>目标个数：</string>
-            </property>
-           </widget>
-           <widget class="QLineEdit" name="num">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="sizeIncrement">
-             <size>
-              <width>12</width>
-              <height>0</height>
-             </size>
-            </property>
-           </widget>
+          <widget class="QWidget" name="layoutWidget">
+           <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="2,4">
+            <item>
+             <widget class="QLabel" name="width_label">
+              <property name="text">
+               <string>工作带宽：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="width_line">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </widget>
-          <widget class="QSplitter" name="splitter_5">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="childrenCollapsible">
-            <bool>false</bool>
-           </property>
-           <widget class="QWidget" name="layoutWidget">
-            <layout class="QHBoxLayout" name="horizontalLayout_2">
-             <item>
-              <widget class="QLabel" name="rangelabel">
-               <property name="text">
-                <string>目标距离：</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="velocitylabel">
-               <property name="text">
-                <string>目标速度：</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-           <widget class="QSplitter" name="splitter_4">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="childrenCollapsible">
-             <bool>false</bool>
-            </property>
-            <widget class="QTextEdit" name="range"/>
-            <widget class="QTextEdit" name="velocity">
-             <property name="enabled">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </widget>
+          <widget class="QWidget" name="layoutWidget">
+           <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="2,4">
+            <item>
+             <widget class="QLabel" name="r_max_label">
+              <property name="text">
+               <string>最大测距：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="r_max_line">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </widget>
-          <widget class="QPushButton" name="plotpushButton">
-           <property name="text">
-            <string>开始绘图</string>
-           </property>
+          <widget class="QWidget" name="layoutWidget">
+           <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="2,4">
+            <item>
+             <widget class="QLabel" name="r_res_label">
+              <property name="text">
+               <string>距离分辨率：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="r_res_line">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="layoutWidget">
+           <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="2,4">
+            <item>
+             <widget class="QLabel" name="v_max_label">
+              <property name="text">
+               <string>最大测速：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="v_max_line">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="layoutWidget">
+           <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="2,4">
+            <item>
+             <widget class="QLabel" name="v_res_label">
+              <property name="text">
+               <string>速度分辨率：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="v_res_line">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="layoutWidget">
+           <layout class="QHBoxLayout" name="horizontalLayout_7">
+            <item>
+             <widget class="QPushButton" name="camerapushButton">
+              <property name="text">
+               <string>打开相机</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="plotpushButton">
+              <property name="text">
+               <string>开始绘图</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </widget>
          </widget>
         </item>
        </layout>
       </widget>
-      <widget class="QGroupBox" name="groupBox_4">
-       <property name="minimumSize">
-        <size>
-         <width>801</width>
-         <height>811</height>
-        </size>
+      <widget class="QSplitter" name="splitter_4">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
        </property>
-       <property name="title">
-        <string>坐标</string>
+       <property name="childrenCollapsible">
+        <bool>false</bool>
        </property>
-       <layout class="QGridLayout" name="gridLayout_4">
-        <item row="0" column="0">
-         <widget class="matplotlibwidget" name="xyplot" native="true"/>
-        </item>
-       </layout>
+       <widget class="QSplitter" name="splitter_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="childrenCollapsible">
+         <bool>false</bool>
+        </property>
+        <widget class="QGroupBox" name="rd_groupBox">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
+         <property name="title">
+          <string>距离多普勒图</string>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
+         </property>
+         <property name="checkable">
+          <bool>false</bool>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="0">
+           <widget class="matplotlibwidget" name="rdplot" native="true"/>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QGroupBox" name="camera_groupBox">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="title">
+          <string>视频图</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="0" column="0">
+           <widget class="QLabel" name="camera">
+            <property name="minimumSize">
+             <size>
+              <width>800</width>
+              <height>500</height>
+             </size>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+       <widget class="QSplitter" name="splitter_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="childrenCollapsible">
+         <bool>false</bool>
+        </property>
+        <widget class="QGroupBox" name="radar_groupBox">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
+         <property name="title">
+          <string>PPI图</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_5">
+          <item row="0" column="0">
+           <widget class="polarwidget" name="radarplot" native="true"/>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QGroupBox" name="location_groupBox_4">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
+         <property name="title">
+          <string>前视图</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="0" column="0">
+           <widget class="matplotlibwidget" name="xyplot" native="true"/>
+          </item>
+         </layout>
+        </widget>
+       </widget>
       </widget>
      </widget>
     </item>
@@ -166,8 +318,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1239</width>
-     <height>26</height>
+     <width>2000</width>
+     <height>19</height>
     </rect>
    </property>
   </widget>
@@ -178,6 +330,12 @@
    <class>matplotlibwidget</class>
    <extends>QWidget</extends>
    <header location="global">MatplotlibWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>polarwidget</class>
+   <extends>QWidget</extends>
+   <header location="global">PolarWidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

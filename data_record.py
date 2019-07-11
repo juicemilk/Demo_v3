@@ -33,10 +33,10 @@ class DataRecord():
         self.RD_r_v_info.put(init_array)
         self.theta_distance_info.put(init_array)
         self.X_Y_info.put(init_array)
-        self.hrrp_1d_array.put(np.ones(256))
-        init_array = range(128*256)
+        self.hrrp_1d_array.put(np.ones(128))
+        init_array = range(64*64)
         init_array = np.array(init_array)
-        init_array = np.reshape(init_array, (128, 256))
+        init_array = np.reshape(init_array, (64, 64))
         self.RD_predetection.put(init_array)
         # self.RD_predetection.put(np.zeros([128,256]))
 

@@ -24,7 +24,7 @@ from matplotlib.figure import Figure
 
 
 class polarwidget(FigureCanvas):
-    def __init__(self, parent=None, width=10, height=8, dpi=100):
+    def __init__(self, parent=None, width=15, height=10, dpi=150):
 
         fig = Figure(figsize=(width, height), dpi=dpi)
 

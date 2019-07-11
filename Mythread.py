@@ -8,47 +8,40 @@
 """
 from PyQt5 import QtCore
 import numpy as np
-import multiprocessing
-
+import time
 """角度映射函数"""
 
 
 def theta_map(x):
-    return np.pi*(90 - x)/180
+    return 0.5*np.pi-x
 
-class Mythread(multiprocessing.process):
-    def __init__(self,radar,showimage,flag):
+class Mythread(QtCore.QThread):
+    def __init__(self,radar,updateimage):
         super(Mythread,self).__init__()
         self.radar=radar
-        self.showimage=showimage
-        self.flag=flag
-        self.i=0
+        self.showimage=updateimage
+        self.flag=True
         print("创建线程")
 
     def run(self):
         print("启动线程")
         while self.flag:
-            targets = self.radar.data_obj.get_target_num()
-            self.i=self.i+1
-            targets=self.i
-            print(1)
-            print(targets)
-            range_velocity = self.radar.data_obj.get_RD_r_v_info()
-            ranges = range_velocity[:, 0]
-            velocitys = range_velocity[:, 1]
+            rd = self.radar.data_obj.get_RD_predetection()
+            x_y = self.radar.data_obj.get_X_Y_info()
+            if len(x_y) != 0:
+                x = x_y[:, 0]
+                y = x_y[:, 1]
+                theta_r = self.radar.data_obj.get_theta_distance_info()
+                theta_p = theta_r[:, 0]
+                theta = np.array(list(map(theta_map, theta_p)))
+                r = theta_r[:, 1]
+            else:
+                x=np.array([0])
+                y=np.array([100])
+                theta=np.array([0])
+                r=np.array([100])
+            self.showimage(rd, x, y, theta, r)
 
-            position = self.radar.data_obj.get_X_Y_info()
-            x_position = position[:, 0]
-            y_position = position[:, 1]
-
-            theta_r = self.radar.data_obj.get_theta_distance_info()
-            theta_p = theta_r[:, 0]
-            theta = np.array(list(map(theta_map, theta_p)))
-            r = theta_r[:, 1]
-            # print(theta)
-            # print(r)
-            self.showimage(targets,ranges,velocitys,x_position,y_position,theta,r)
-            # time.sleep(100)
 
     def thread_stop_start(self,status):
         self.flag=status
