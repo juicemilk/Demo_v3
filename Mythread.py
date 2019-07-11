@@ -8,14 +8,15 @@
 """
 from PyQt5 import QtCore
 import numpy as np
-import time
+import multiprocessing
+
 """角度映射函数"""
 
 
 def theta_map(x):
     return np.pi*(90 - x)/180
 
-class Mythread(QtCore.QThread):
+class Mythread(multiprocessing.process):
     def __init__(self,radar,showimage,flag):
         super(Mythread,self).__init__()
         self.radar=radar
