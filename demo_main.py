@@ -30,7 +30,8 @@ class Demo(QtWidgets.QMainWindow,Ui_MainWindow):
         self.read_parameter()
         self.axes_init()
         # self.i=0
-        self.MyThread = Mythread(self.radar, self.updateimage)
+        self.MyThread = Mythread(self.radar,self.updateimage)
+
 
     """雷达参数读取"""
     def read_parameter(self):

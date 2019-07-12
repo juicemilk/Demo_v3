@@ -8,7 +8,6 @@
 """
 from PyQt5 import QtCore
 import numpy as np
-import time
 """角度映射函数"""
 
 
@@ -17,7 +16,7 @@ def theta_map(x):
 
 class Mythread(QtCore.QThread):
     def __init__(self,radar,updateimage):
-        super(Mythread,self).__init__()
+        QtCore.QThread.__init__(self)
         self.radar=radar
         self.showimage=updateimage
         self.flag=True
